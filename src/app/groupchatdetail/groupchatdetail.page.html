@@ -1,0 +1,60 @@
+<ion-header>
+  <div class="ion-padding chat-detail-top-div">
+    <div class="info">
+      <ion-icon (click)="gotToChatList()" name="chevron-back-outline"></ion-icon>
+      <ion-avatar (click)="gotToChatList()">
+        <img src="{{this.image}}" style="width: 45px; height: 45px;" alt="user_profile" />
+      </ion-avatar>
+      <span class="details">
+        <h1 style="text-transform: capitalize;"> {{this.groupName}}
+          <span style="font-size: 12px;">( {{ this.groupName == 'city' ? this.userData.City :
+            this.groupName == 'village' ? this.userData.Village : this.groupName == 'area' ? this.userData.Area : ""}} )
+          </span>
+        </h1>
+        <!-- <p> this.userStatus </p> -->
+      </span>
+    </div>
+    <div class="about">
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="content">
+  <div class="message-detail-div">
+    <ion-grid class="grid-padding">
+      <ion-row *ngFor="let message of chatList">
+        <ion-col size="9" *ngIf="userData.userId !== message.senderID" class="message other-message">
+          <!-- <b>  message.user  </b><br /> -->
+          <span> {{message.msg}} </span>
+          <div class="other-time" text-right><br /> {{message.msgDateTime | date:'short'}} </div>
+        </ion-col>
+        <ion-col offset="3" size="9" *ngIf="userData.userId === message.senderID" class="message my-message">
+          <!-- <b>  message.user  </b><br /> -->
+          <span> {{message.msg}} </span>
+          <div class="my-time" text-right><br /> {{message.msgDateTime | date:'short'}} </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="chat-footer">
+    <ion-row align-item-center no-padding style="padding-top: 17px;">
+      <ion-col size="1" (click)="attachmentModal()">
+        <i class="fa fa-paperclip attachment-icon" aria-hidden="true"></i>
+      </ion-col>
+      <ion-col size="9" style="padding-left: 10px">
+        <ion-input placeholder="Type here your message...." autosize maxRows="4" [(ngModel)]="newMsg"
+          class="message-input" spellcheck="true"></ion-input>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="white" [disabled]="newMsg === ''" class="message-btn"
+          (click)="sendMessagesFromSK()">
+          <i class="fa fa-paper-plane arrow-send" aria-hidden="true"></i>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-footer>

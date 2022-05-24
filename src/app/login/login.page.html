@@ -1,0 +1,68 @@
+<ion-header>
+  <!-- <ion-navbar> -->
+  <!-- <ion-title>foundation-landing-page</ion-title> -->
+  <!-- <img src="../../assets/img/dh1.png" /> -->
+
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginform">
+
+    <img src="../../assets/img/logo.png" width="30%" style="margin-left: 35%; margin-right: 35%; margin-top: 10%;" />
+    <!-- <h4 class="heading">Registration</h4> -->
+    <br>
+    <ion-label class="label" style="color: rgb(134 134 138);">Email</ion-label>
+    <ion-item lines="none">
+      <ion-input formControlName="Email" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="email">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(loginform, 'Email', 'required')">Email is Required!</p>
+
+
+    <br>
+    <ion-label class="label" style="color: rgb(134 134 138);">Password</ion-label>
+    <div style="width: 80%; float: left;">
+      <ion-item lines="none">
+        <ion-input formControlName="Password" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+          [type]="PasswordType">
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <div style="width: 10%; float: left;">
+      <ion-icon (click)="ShowPassword()" *ngIf="!PasswordCheck"
+        style="color: #008a7c; padding-left: 45%; padding-top: 45%; font-size: 25px;" name="eye"></ion-icon>
+      <ion-icon (click)="ShowPassword()" *ngIf="PasswordCheck"
+        style="color: #008a7c; padding-left: 45%; padding-top: 45%; font-size: 25px;" name="eye-off"></ion-icon>
+    </div>
+
+
+    <p style="clear: both;" class="error" *ngIf="hasError(loginform, 'Password', 'required')">Password is Required!</p>
+    <br style="clear: both;"><br>
+    <button *ngIf="!isBtnDis" disabled class="disable_btn" (click)="register()" ion-button>LOGIN</button>
+    <button *ngIf="isBtnDis" class="btn" (click)="getLogin()" ion-button>LOGIN</button>
+    <button (click)="goToRegister()" class="btn" ion-button>REGISTER</button>
+
+
+  </form>
+
+  <p style="color: #858888; font-family: 'Roboto', sans-serif; margin: 20px; text-align: center;">
+    <span style="color: #008a7c; font-family: 'Roboto', sans-serif; text-decoration-line: underline;">Forgot Password ?
+    </span>
+  </p>
+  <br>
+  <hr style="background-color: #008a7c;">
+
+  <p style="color: #858888; font-family: 'Roboto', sans-serif; margin: 20px; text-align: center;">Ye idara
+    <span style="color: #008a7c; font-family: 'Roboto', sans-serif;">Rajput Foundation</span> Tamam Rajput Bradari Ko Ek
+    Jaga Jama Karne Ke Liye Banaya Gaya Hain Hamara Maqsad Bradri Me
+    Itehad Qaim Karna Hain
+  </p>
+
+</ion-content>
+
+<ion-footer>
+  <!-- <img src="../../assets/img/dh8.png" /> -->
+</ion-footer>

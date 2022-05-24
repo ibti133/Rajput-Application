@@ -1,0 +1,109 @@
+<ion-header>
+  <img src="../../assets/img/dh1.png" />
+</ion-header>
+<div class="chat-list">
+  <div class="recent-chats ion-pending">
+    <div class="heading">
+      <h1 *ngIf="showHeading">Recent Chats</h1>
+      <ion-searchbar (ionInput)="searchList($event)" *ngIf="showSearchBar" class="search-bar"></ion-searchbar>
+      <ion-icon name="search-sharp" mode="md" (click)="showSearch()" *ngIf="searchButton"></ion-icon>
+    </div>
+  </div>
+</div>
+<ion-content>
+  <div class="chat-div">
+    <!-- <div *ngFor="let cityDetail of cityList" style="border-bottom: 2px solid rgba(163, 163, 163, 0.61); height: 65px;">
+
+    </div> -->
+
+    <!-- Your City  -->
+    <div (click)="goToGroupChat('city')">
+      <div style="width: 17%; float: left;">
+        <img src="../../assets/img/city.png" width="40px" height="40px"
+          style="border-radius: 50%; margin-left: 10px; margin-top: 10px; border: 1px #008a7c solid;" />
+      </div>
+
+      <div style="width: 83%;  float: left;">
+        <p style="font-size: 20px; color: rgb(0, 0, 0); margin-top: 13px; text-transform: capitalize;">
+          <b>Your City ( {{userData.City}} ) </b>
+        </p>
+        <p style="text-transform: capitalize ;font-size: 12px; color: #008a7c; margin-top: -18px;"><b>
+            This is a city message </b> </p>
+      </div>
+    </div>
+
+    <!-- Your Area -->
+    <div (click)="goToGroupChat('area')">
+      <div style="width: 17%; float: left;">
+        <img src="../../assets/img/area.png" width="40px" height="40px"
+          style="border-radius: 50%; margin-left: 10px; margin-top: 10px; border: 1px #008a7c solid;" />
+      </div>
+
+      <div style="width: 83%;  float: left;">
+        <p style="font-size: 20px; color: rgb(0, 0, 0); margin-top: 13px; text-transform: capitalize;">
+          <b>Your Area ( {{userData.Area}} ) </b>
+        </p>
+        <p style="text-transform: capitalize ;font-size: 12px; color: #008a7c; margin-top: -18px;"><b>
+            This is a area message</b> </p>
+      </div>
+    </div>
+
+    <!-- Your Village -->
+    <div (click)="goToGroupChat('village')">
+      <div style="width: 17%; float: left;">
+        <img src="../../assets/img/village.png" width="40px" height="40px"
+          style="border-radius: 50%; margin-left: 10px; margin-top: 10px; border: 1px #008a7c solid;" />
+      </div>
+
+      <div style="width: 83%;  float: left;">
+        <p style="font-size: 20px; color: rgb(0, 0, 0); margin-top: 13px; text-transform: capitalize;">
+          <b>Your Village ( {{userData.Village}} ) </b>
+        </p>
+        <p style="text-transform: capitalize ;font-size: 12px; color: #008a7c; margin-top: -18px;"><b>
+            This is a village message</b> </p>
+      </div>
+    </div>
+
+    <div *ngFor="let chatData of filterChatList"
+      style="border-bottom: 2px solid rgba(163, 163, 163, 0.61); height: 65px;">
+      <div *ngIf="chatData.firstUser.id == this.userData.userId">
+        <div (click)="goToChatDetails(chatData)" style="width: 17%; float: left;">
+          <img src="{{chatData.secondUser.dp}}" width="40px" height="40px"
+            style="border-radius: 50%; margin-left: 10px; margin-top: 10px; border: 1px #008a7c solid;" />
+        </div>
+
+        <div (click)="goToChatDetails(chatData)" style="width: 83%;  float: left;">
+          <p style="font-size: 20px; color: rgb(0, 0, 0); margin-top: 13px; text-transform: capitalize;">
+            <b>{{chatData.secondUser.name}}</b>
+          </p>
+          <p style="text-transform: capitalize ;font-size: 12px; color: #008a7c; margin-top: -20px;"><b>
+              {{chatData.lastMsg == '' ? 'No message' : chatData.lastMsg}}</b> </p>
+        </div>
+      </div>
+
+      <div *ngIf="chatData.secondUser.id == this.userData.userId">
+        <div (click)="goToChatDetails(chatData)" style="width: 17%; float: left;">
+          <img src="{{chatData.firstUser.dp}}" width="40px" height="40px"
+            style="border-radius: 50%; margin-left: 10px; margin-top: 10px; border: 1px #008a7c solid;" />
+        </div>
+
+        <div (click)="goToChatDetails(chatData)" style="width: 83%;  float: left;">
+          <p style="font-size: 20px; color: rgb(0, 0, 0); margin-top: 13px; text-transform: capitalize;">
+            <b>{{chatData.firstUser.name}}</b>
+          </p>
+          <p style="text-transform: capitalize ;font-size: 12px; color: #008a7c; margin-top: -20px;"><b>
+              {{chatData.lastMsg == '' ? 'No message' : chatData.lastMsg}}</b> </p>
+          <!-- <p style="font-size: 10px; color: rgb(218, 13, 6); margin-top: -5px;">( {{chatData.secondUser.isAdmin == 1 ?
+                'Admin' :
+                'Member'}} )</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-fab-button class="hd-fab-right" color="primary" (click)="goToNewChat()" style="height: 60px;width: 60px;">
+    <ion-icon name="create-outline"></ion-icon>
+  </ion-fab-button>
+</ion-content>
+<ion-footer>
+  <img src="../../assets/img/dh8.png" />
+</ion-footer>

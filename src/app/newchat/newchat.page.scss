@@ -1,0 +1,15 @@
+ion-content {
+--background : rgb(255, 255, 255);
+width: 100%;
+background-repeat: no-repeat;
+background-size: contain;
+}
+
+.new-background-color{
+    --background: #008a7c;
+}
+
+.search-background-color{
+    --background: #e9e1e1a2;
+    color: black;
+}

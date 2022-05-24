@@ -1,0 +1,168 @@
+ion-avatar {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.chat-detail-top-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    height: 10vh;
+    color: black;
+    padding-top: 20px;
+
+    ion-icon {
+        font-size: 1.6rem;
+        color: black;
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+
+        ion-avatar {
+            max-width: 50px;
+            max-height: 50px;
+            margin-left: 10px;
+        }
+
+        .details {
+            margin-left: 0px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            h1,
+            p {
+                margin: 0px;
+                color: black;
+                margin-left: 10px;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            p {
+                opacity: 0.7;
+                margin-top: 3px;
+                font-size: 0.8rem;
+                color: #065e55;
+            }
+        }
+    }
+
+    .about {
+        i {
+            margin-right: 15px;
+            opacity: 0.7;
+            font-size: 25px;
+        }
+    }
+}
+
+.content {
+    --background: #065e55;
+}
+
+.message-detail-div {
+    background-color: white;
+    min-height: 100%;
+    border-radius: 0px 0px 30px 30px;
+}
+
+.grid-padding {
+    padding: 10px;
+}
+
+.message {
+    padding: 10px;
+    margin-top: 4px;
+    white-space: pre-wrap;
+}
+
+.other-message {
+    background: #dddddd;
+    color: black;
+    border-radius: 20px 20px 20px 0px;
+}
+
+.my-message {
+    background: #065e55;
+    color: white;
+    border-radius: 20px 20px 0px 20px;
+}
+
+.other-time {
+    color: black;
+    float: right;
+    font-size: small;
+}
+
+.my-time {
+    color: #dfdfdf;
+    float: right;
+    font-size: small;
+}
+
+.chat-footer {
+    background: #065e55;
+    height: 80px;
+}
+
+.message-input {
+    width: 100%;
+    border: 1px solid #065e55;
+    color: black;
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.message-btn {
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+}
+
+.arrow-send {
+    font-size: 25px;
+    color: white;
+    padding-bottom: 13px;
+    padding-right: 12px;
+}
+
+.attachment-icon {
+    font-size: 25px;
+    padding-top: 8px;
+    padding-left: 5px;
+}
+
+.icon-col {
+    text-align: center;
+}
+
+.icon-col-phone {
+    text-align: center;
+    padding-top: 8px;
+    padding-right: 20px;
+}
+
+.default-message-div {
+    padding-left: 10px;
+    padding-right: 10px;
+    opacity: 0.6;
+}
+
+.default-message {
+    font-size: 12px;
+    border: 1px solid;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgb(177 177 177 / 50%);
+    color: black;
+}

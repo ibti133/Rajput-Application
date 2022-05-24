@@ -1,0 +1,58 @@
+ion-content {
+    --background: #065e55;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.new-background-color {
+    --background: #008a7c;
+}
+
+.search-background-color {
+    --background: #e9e1e1a2;
+    color: black;
+}
+
+.chat-div {
+    background-color: white;
+    min-height: 100%;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+}
+
+.chat-list {
+    background: #065e55;
+    margin-top: -5px;
+
+    .recent-chats {
+        padding-left: 15px;
+        padding-right: 20px
+    }
+
+    .all-chats {
+        padding-top: 0px;
+    }
+
+    .heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        ion-icon {
+            font-size: 1.5rem;
+            color: white;
+        }
+    }
+}
+
+.search-bar {
+    --background: white;
+    color: black;
+}

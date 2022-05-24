@@ -1,0 +1,227 @@
+<ion-header>
+  <!-- <ion-navbar> -->
+  <!-- <ion-title>foundation-landing-page</ion-title> -->
+  <img src="../../assets/img/dh1.png" />
+
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content>
+
+  <!-- <button ion-button (click)="captureImage()">Click Here</button> -->
+  <!-- <angular-cropper [cropperOptions]="cropperOption"
+    imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg">
+  </angular-cropper> -->
+
+
+  <form [formGroup]="signupform">
+
+    <img (click)="file.click()" src="{{myImage}}" width="30%"
+      style="margin-left: 35%; margin-right: 35%; margin-top: 10%; border-radius: 10px;" />
+    <input id="file" (change)="pushFileToStorage($event)" type="file" #file style="display: none">
+
+    <!-- <h4 class="heading">Registration</h4> -->
+    <ion-label id='email' class="label" style="color: rgb(134 134 138);">Email</ion-label>
+    <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-input formControlName="Email" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="Email">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Email', 'required')">Email is Required!</p>
+
+
+    <br>
+    <ion-label id='password' class="label" style="color: rgb(134 134 138);">Password</ion-label>
+    <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-input formControlName="Password" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="Password"></ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Password', 'required')">Password is Required!</p>
+
+    <!-- <br>
+    <ion-label class="label" style="color: rgb(134 134 138);">Confirm Password</ion-label>
+    <ion-item lines="none">
+      <ion-input formControlName="ConfirmPassword" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="Password"></ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'ConfirmPassword', 'required')">ConfirmPassword is Required!</p> -->
+
+    <br>
+    <ion-label id='username' class="label" style="color: rgb(134 134 138);">Username</ion-label>
+    <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-input formControlName="Name" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="text">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Name', 'required')">User Name is Required!</p>
+
+    <br>
+
+
+    <ion-label id='fathername' class="label" style="color: rgb(134 134 138);">Father Name</ion-label>
+    <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-input formControlName="FatherName" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="text">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'FatherName', 'required')">Father Name is Required!</p>
+
+
+    <br>
+    <ion-label id="phone" class="label" style="color: rgb(134 134 138);">Phone</ion-label>
+    <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-input formControlName="Phone" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="number">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Phone', 'required')">Phone Number is Required!</p>
+
+    <br>
+    <ion-label id="gender" class="label" style="color: rgb(134 134 138);">Gender</ion-label>
+    <ion-item (click)="onFocusOutEvent()">
+      <ion-select formControlName="Gender" placeholder="Select Gender">
+        <ion-select-option value="female">Female</ion-select-option>
+        <ion-select-option value="male">Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Gender', 'required')">Gender is Required!</p>
+
+
+    <br>
+    <ion-label id="dob" class="label" style="color: rgb(134 134 138); clear: both;">Date Of Birth</ion-label>
+    <!-- <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-input formControlName="DOB" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="date">
+      </ion-input>
+    </ion-item> -->
+    <div>
+      <div style="width: 33%; float: left;">
+        <ion-item (click)="onFocusOutEvent()" lines="none">
+          <ion-input maxlength="2" placeholder="dd" formControlName="d"
+            style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="tel">
+          </ion-input>
+        </ion-item>
+      </div>
+
+      <div style="width: 33%; float: left;">
+        <ion-item (click)="onFocusOutEvent()" lines="none">
+          <ion-input maxlength="2" placeholder="mm" formControlName="m"
+            style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="tel">
+          </ion-input>
+        </ion-item>
+      </div>
+
+      <div style="width: 33%; float: left;">
+        <ion-item (click)="onFocusOutEvent()" lines="none">
+          <ion-input maxlength="4" placeholder="yyyy" formControlName="y"
+            style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="tel">
+          </ion-input>
+        </ion-item>
+      </div>
+      <br>
+      <p class="error" style="clear: both;margin-top: 14%;" *ngIf="hasError(signupform, 'd', 'required')">DOB is
+        Required!</p>
+      <!-- <p class="error" style="clear: both;margin-top: 14%;" *ngIf="hasError(signupform, 'm', 'required')">DOB is
+        Required!</p>
+      <p class="error" style="clear: both;margin-top: 14%;" *ngIf="hasError(signupform, 'y', 'required')">DOB is
+        Required!</p> -->
+    </div>
+    <br style="clear: both;"><br style="clear: both;">
+
+
+    <ion-label id="country" class="label" style="color: rgb(134 134 138); clear: both;">Country</ion-label>
+    <ion-item (click)="onFocusOutEvent()">
+      <ion-select formControlName="Country" placeholder="Select Country">
+        <ion-select-option *ngFor="let country of allCountryList" [value]="country.name">{{country.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Country', 'required')">Country is Required!</p>
+
+    <br>
+
+    <ion-label id="state" class="label" style="color: rgb(134 134 138);">State</ion-label>
+    <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-select formControlName="State" placeholder="Select State">
+        <ion-select-option value="Sindh">Sindh</ion-select-option>
+        <ion-select-option value="Balochistan">Balochistan</ion-select-option>
+        <ion-select-option value="Punjab">Punjab</ion-select-option>
+        <ion-select-option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</ion-select-option>
+      </ion-select>
+      <!-- <ion-input formControlName="State" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="text">
+      </ion-input> -->
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'State', 'required')">State is Required!</p>
+    <br>
+
+    <ion-label id="city" class="label" style="color: rgb(134 134 138);">City</ion-label>
+    <ion-item (click)="focusFunction2()" lines="none">
+      <ion-input formControlName="City" (ionChange)="cityFilter($event)"
+        style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="text">
+      </ion-input>
+    </ion-item>
+
+    <p class="error" *ngIf="hasError(signupform, 'City', 'required')">City is Required!</p>
+
+    <div *ngIf="autoCity == 1">
+      <div class="auto" *ngFor="let data of filteCityList">
+        <h1 (click)="tapOnCityList(data.name)" style="font-size: 15px; margin-top: 10px;">{{data.name}}</h1>
+      </div>
+    </div>
+
+    <!-- Area  -->
+    <br>
+    <ion-label id="area" class="label" style="color: rgb(134 134 138);">Area</ion-label>
+    <ion-item (click)="focusFunction()" lines="none">
+      <ion-input formControlName="Area" (ionChange)="areasFilter($event)"
+        style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="text">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Area', 'required')">Area is Required!</p>
+
+    <div *ngIf="autoArea == 1">
+      <div class="auto" *ngFor="let areas of filteAreaList">
+        <h1 (click)="tapOnList(areas.areaName)" style="font-size: 15px; margin-top: 10px;">{{areas.areaName}}</h1>
+      </div>
+    </div>
+
+    <!-- Area  -->
+    <br>
+
+    <ion-label id="village" class="label" style="color: rgb(134 134 138);">Village</ion-label>
+    <ion-item (click)="focusFunction3()" lines="none">
+      <ion-input (ionChange)="VillageFilter($event)" formControlName="Village"
+        style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);" type="text">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Village', 'required')">Village is Required!</p>
+
+    <div *ngIf="autoVillage == 1">
+      <div class="auto" *ngFor="let data of filterVillageList">
+        <h1 (click)="tapOnVillageList(data.villageName)" style="font-size: 15px; margin-top: 10px;">{{data.villageName}}
+        </h1>
+      </div>
+    </div>
+
+
+    <br>
+    <ion-label id="profession" class="label" style="color: rgb(134 134 138);">Profession</ion-label>
+    <ion-item (click)="onFocusOutEvent()" lines="none">
+      <ion-input formControlName="Profession" style="font-family: 'Roboto', sans-serif; color: rgb(134 134 138);"
+        type="text">
+      </ion-input>
+    </ion-item>
+    <p class="error" *ngIf="hasError(signupform, 'Profession', 'required')">Profession is Required!</p>
+
+    <br><br>
+
+    <button *ngIf="!isBtnDis" class="disable_btn" (click)="showError()" ion-button>REGISTERATION</button>
+    <button *ngIf="isBtnDis" class="btn" (click)="register()" ion-button>REGISTERATION</button>
+    <!-- <button class="BoxColor" (click)="register()" ion-button full style="height: 40px">REGISTER</button> -->
+
+  </form>
+
+</ion-content>
+
+<!-- <ion-footer>
+  <img src="../../assets/img/dh8.png" />
+</ion-footer> -->
